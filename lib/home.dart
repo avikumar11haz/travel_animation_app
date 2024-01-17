@@ -152,7 +152,7 @@ class Home extends StatelessWidget {
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 100,
-                    child: Column(
+                    child: const Column(
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -238,17 +238,20 @@ class Home extends StatelessWidget {
       },
       child: Stack(
         children: [
-          Container(
-            height: 200,
-            width: 160,
-            margin: const EdgeInsets.only(right: 20),
-            //padding: const EdgeInsets.only(bottom: 20),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                image: DecorationImage(
-                  image: AssetImage(imagePath),
-                  fit: BoxFit.cover,
-                )),
+          Hero(
+            tag: imagePath,
+            child: Container(
+              height: 200,
+              width: 160,
+              margin: const EdgeInsets.only(right: 20),
+              //padding: const EdgeInsets.only(bottom: 20),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                    image: AssetImage(imagePath),
+                    fit: BoxFit.cover,
+                  )),
+            ),
           ),
           Positioned(
             top: 0,
