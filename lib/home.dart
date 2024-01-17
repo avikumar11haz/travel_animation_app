@@ -232,7 +232,7 @@ class Home extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const DestinationDetail(),
+            builder: (context) => DestinationDetail(imagePath),
           ),
         ),
       },
