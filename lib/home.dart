@@ -9,6 +9,51 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Container(
+        width: MediaQuery.of(context).size.width - 80,
+        height: 80,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              AppColor.darkSecondaryColor,
+              AppColor.lightTertiaryColor,
+            ],
+          ),
+        ),
+        child: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+              onPressed: null,
+              icon: Icon(
+                Icons.home,
+                color: Colors.white38,
+                size: 40,
+              ),
+            ),
+            IconButton(
+              onPressed: null,
+              icon: Icon(
+                Icons.place,
+                color: AppColor.primaryColor,
+                size: 40,
+              ),
+            ),
+            IconButton(
+              onPressed: null,
+              icon: Icon(
+                Icons.person,
+                color: Colors.white38,
+                size: 40,
+              ),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       body: Container(
         height: MediaQuery.of(context).size.height,
         decoration: const BoxDecoration(
@@ -70,7 +115,7 @@ class Home extends StatelessWidget {
             ),
             const Padding(
               padding:
-              EdgeInsets.only(left: 25, right: 25, bottom: 30, top: 50),
+                  EdgeInsets.only(left: 25, right: 25, bottom: 30, top: 30),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -86,6 +131,56 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 25, right: 25, bottom: 30, top: 0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 30,
+                    width: 30,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        image: const DecorationImage(
+                          image: AssetImage('assets/man.jpeg'),
+                        )),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width - 100,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            PrimaryText(
+                              text: "Parteek kumar",
+                              size: 14,
+                            ),
+                            PrimaryText(
+                              text: 'Jan 28',
+                              size: 12,
+                              color: Colors.white38,
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10,),
+                        PrimaryText(
+                          text: 'Discover the pulsating neon energy of Tokyo,'
+                              ' where cutting-edge technology seamlessly blends with centuries-old traditions,'
+                              ' offering endless delights for every kind of traveler.',
+                          size: 14,
+                          color: Colors.white38,
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
