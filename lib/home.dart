@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:travel_app_ui/colors.dart';
 import 'package:travel_app_ui/constant.dart';
+import 'package:travel_app_ui/destinationDetail.dart';
 import 'package:travel_app_ui/style.dart';
 
 class Home extends StatelessWidget {
@@ -167,7 +168,9 @@ class Home extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         PrimaryText(
                           text: 'Discover the pulsating neon energy of Tokyo,'
                               ' where cutting-edge technology seamlessly blends with centuries-old traditions,'
@@ -222,60 +225,70 @@ class Home extends StatelessWidget {
     );
   }
 
-  Stack hotdestinationCard(BuildContext context, String imagePath,
+  Widget hotdestinationCard(BuildContext context, String imagePath,
       String placeName, String placeCount) {
-    return Stack(
-      children: [
-        Container(
-          height: 200,
-          width: 160,
-          margin: const EdgeInsets.only(right: 20),
-          //padding: const EdgeInsets.only(bottom: 20),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
-              )),
-        ),
-        Positioned(
-          top: 0,
-          left: 0,
-          child: Container(
-            height: 200,
-            width: 160,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                gradient: const LinearGradient(
-                    begin: Alignment.bottomCenter,
-                    end: Alignment.topCenter,
-                    colors: [
-                      AppColor.secondaryColor,
-                      Colors.transparent,
-                    ])),
+    return GestureDetector(
+      onTap: () => {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const DestinationDetail(),
           ),
         ),
-        Positioned(
-            bottom: 25,
-            left: 25,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                PrimaryText(
-                  text: placeName,
-                  size: 14,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                PrimaryText(
-                  text: placeCount,
-                  size: 10,
-                  color: Colors.white54,
-                )
-              ],
-            ))
-      ],
+      },
+      child: Stack(
+        children: [
+          Container(
+            height: 200,
+            width: 160,
+            margin: const EdgeInsets.only(right: 20),
+            //padding: const EdgeInsets.only(bottom: 20),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  image: AssetImage(imagePath),
+                  fit: BoxFit.cover,
+                )),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: Container(
+              height: 200,
+              width: 160,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: const LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: [
+                        AppColor.secondaryColor,
+                        Colors.transparent,
+                      ])),
+            ),
+          ),
+          Positioned(
+              bottom: 25,
+              left: 25,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  PrimaryText(
+                    text: placeName,
+                    size: 14,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  PrimaryText(
+                    text: placeCount,
+                    size: 10,
+                    color: Colors.white54,
+                  )
+                ],
+              ))
+        ],
+      ),
     );
   }
 
