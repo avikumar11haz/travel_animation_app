@@ -31,8 +31,8 @@ const hotDestination = [
   },
   {
     'imagePath': 'assets/city.jpg',
-    'placeName': 'NEWYORK',
-    'placeCount': '20 Tourist place',
+    'placeName': 'EUROPE',
+    'placeCount': '15 Tourist place',
   },
 
 ];
